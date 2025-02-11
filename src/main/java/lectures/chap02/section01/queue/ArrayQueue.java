@@ -1,4 +1,4 @@
-package lectures.chap02.section01.que;
+package lectures.chap02.section01.queue;
 
 /* 배열 기반 큐 예제 (순환 큐) */
 public class ArrayQueue<T> {

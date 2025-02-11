@@ -1,4 +1,4 @@
-package lectures.chap02.section01.que;
+package lectures.chap02.section01.queue;
 
 import java.util.LinkedList;
 import java.util.Queue;

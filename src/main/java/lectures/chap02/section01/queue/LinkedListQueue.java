@@ -1,4 +1,4 @@
-package lectures.chap02.section01.que;
+package lectures.chap02.section01.queue;
 
 /* 연결 리스트 기반 큐 예제 */
 public class LinkedListQueue<T> {
