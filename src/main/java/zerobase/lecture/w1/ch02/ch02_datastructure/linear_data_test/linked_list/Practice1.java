@@ -1,4 +1,7 @@
-package zerobase.lecture.w1.ch02.ch02_datastructure.linear_data.linked_list;
+package zerobase.lecture.w1.ch02.ch02_datastructure.linear_data_test.linked_list;
+
+// 연습용
+// 단순 연결 리스트 - 중간에 추가, 삭제
 
 // 단순 연결 리스트 구현
 // 중간에 추가, 삭제하는 로직 구현
@@ -9,35 +12,37 @@ class LinkedList2 extends LinkedList {
 //        super(node); 와 동일하다.
     }
 
-//    **연결 리스트에 데이터 추가
+    //    **연결 리스트에 데이터 추가
 //    before_data 가 null인 경우, 가장 뒤에 추가
 //    before_data 에 값이 있는 경우, 해당 값을 가진 노드 앞에 추가
 //    추가할 데이터, beforData 앞에 추가할지 뒤에 추가할지 나눠서 구현
     public void addData(int data, Integer beforeData) {
+        // head에 값이 없다면 새로운 Node 추가
         if (this.head == null) {
             this.head = new Node(data, null);
         } else if (beforeData == null) {
 //            before 데이터에 값이 없다면
 //            cur 데이터에 head를 넣고
+//            cur.next 의 null 아닌 부분을 찾고
             Node cur = this.head;
-            while (cur.next != null) { //null로 이동하기
-//               cur.next 의 null 아닌 부분을 찾고
+            while (cur.next != null) {
                 cur = cur.next;
             }
-//            cur의next 값이 null이면 해당 데이터 넣기
+//            cur의 next 값이 null이면 해당 데이터 넣기
             cur.next = new Node(data, null);
         } else {
             Node cur = this.head;
             Node pre = cur;
             while (cur != null) {
-//                before 데이터와 cur 데이터가 일치하면
+//              cur이 null 이 아닌 조건
+//              before 데이터와 cur 데이터가 일치하면
                 if (cur.data == beforeData) {
 //                    cur이 head 값이면
                     if (cur == this.head) {
-//                        head 에 방금 들어온 data를 노드로 만들어서 할당한다.
+//                        head에 방금 들어온 data를 노드로 만들어서 할당한다. head는 그 다음 데이터로 연결
                         this.head = new Node(data, this.head);
                     } else {
-//                        중간에 들어가는 경우, node를 새로 만들어서 pre.next로 만들어준다.
+//                        중간에 들어온다면 cur을 받은 pre.next에 new Node를 생성하고 뒤에 cur 연결
                         pre.next = new Node(data, cur);
                     }
                     break;
@@ -55,24 +60,41 @@ class LinkedList2 extends LinkedList {
             System.out.println("List is empty");
             return;
         }
+//                첫 번째 노드를 삭제하는 경우 다음 cur을 바로 head로 바꾼다.
         Node cur = this.head;
-        Node pre = cur;
+        Node prev = cur;
 
         while (cur != null) {
             if (cur.data == data) {
-//                첫 번째 노드를 삭제하는 경우 다음 cur을 바로 head로 바꾼다.
-                this.head = cur.next;
-            } else {
-//                중간이나 마지막 노드 삭제하는 경우, 이전 node를 다음 node로 바꿔준다.
-                pre.next = cur.next;
+                if (cur == this.head) {
+                    this.head = cur.next;
+                } else {
+                    prev.next = cur.next;
+                }
+                return;
             }
+//                중간이나 마지막 노드 삭제하는 경우, 이전 node를 다음 node로 바꿔준다.
 //            삭제 후 메서드 종료
+            prev = cur;
+            cur = cur.next;
+        }
+    }
+
+
+    public void showData() {
+        if (this.isEmpty()) {
+            System.out.println("List is Empty");
             return;
         }
-        pre = cur;
-        cur = cur.next;
+        Node cur = this.head;
+        while (cur != null) {
+            System.out.print(cur.data + " ");
+            cur = cur.next;
+        }
+        System.out.println();
     }
 }
+
 
 public class Practice1 {
     public static void main(String[] args) {
@@ -108,4 +130,3 @@ public class Practice1 {
         myList.showData();
     }
 }
-
