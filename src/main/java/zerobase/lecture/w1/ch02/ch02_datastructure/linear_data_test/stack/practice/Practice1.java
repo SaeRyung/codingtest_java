@@ -1,4 +1,4 @@
-package zerobase.lecture.w1.ch02.ch02_datastructure.linear_data.stack.practice;
+package zerobase.lecture.w1.ch02.ch02_datastructure.linear_data_test.stack.practice;
 // 문자열 뒤집기
 // 입력: "Hello"
 // 출력: "olleH"
@@ -22,7 +22,7 @@ public class Practice1 {
 //            비어있지 않다면 stack의 pop으로 한글자씩 가져오기
             result += stack.pop();
         }
-        return result;
+       return result;
     }
 
     public static void main(String[] args) {
@@ -34,3 +34,4 @@ public class Practice1 {
         System.out.println("result = " + result);
     }
 }
+
