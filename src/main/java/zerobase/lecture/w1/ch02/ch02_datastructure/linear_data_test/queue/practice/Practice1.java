@@ -1,4 +1,4 @@
-package zerobase.lecture.w1.ch02.ch02_datastructure.linear_data.queue.practice;
+package zerobase.lecture.w1.ch02.ch02_datastructure.linear_data_test.queue.practice;
 
 import java.util.LinkedList;
 import java.util.Queue;
@@ -25,19 +25,16 @@ public class Practice1 {
         Queue queue = new LinkedList();
 
 //        queue 에 값 넣기
-        IntStream.range(1, N+1).forEach(x -> queue.add(x));
-        System.out.println(queue);
-
+        for (int i = 1; i <= N; i++) {
+            queue.add(i);
+        }
 //        반복문 실행
-        while(queue.size() > 1){
+        while (queue.size() > 1){
 //            맨 처음 장 버리기
             queue.remove();
-            System.out.println(queue);
-//            버린 값, 다시 뒤에 넣기
             int data = (int)queue.remove();
+//            버린 값, 다시 뒤에 넣기
             queue.add(data);
-            System.out.println(queue);
-
         }
         return (int)queue.poll();
     }

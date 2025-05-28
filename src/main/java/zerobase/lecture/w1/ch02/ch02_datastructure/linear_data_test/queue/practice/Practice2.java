@@ -1,4 +1,4 @@
-package zerobase.lecture.w1.ch02.ch02_datastructure.linear_data.queue.practice;
+package zerobase.lecture.w1.ch02.ch02_datastructure.linear_data_test.queue.practice;
 
 import java.util.ArrayList;
 import java.util.LinkedList;
@@ -22,8 +22,10 @@ public class Practice2 {
     public static ArrayList getJosephusPermutation(int N, int K) {
         Queue queue = new LinkedList();
         ArrayList result = new ArrayList();
-
-        IntStream.range(1, N+1).forEach(x -> queue.add(x));
+//        queue 에 값 채우기
+        for (int i = 1; i <= N ; i++) {
+           queue.add(i);
+        }
 
 //        k 번째 사람인지 체크하기 위한 변수 cnt
         int cnt = 0;
@@ -36,11 +38,15 @@ public class Practice2 {
             if(cnt % K == 0){
 //                순번 사람이라면 결과값에 순서대로 올 수 있도록 더하기
                 result.add(data);
-            } else{
+            } else {
 //                아니라면 queue 뒤에 다시 추가
                 queue.add(data);
             }
         }
+
+
+
+
         return result;
     }
 
