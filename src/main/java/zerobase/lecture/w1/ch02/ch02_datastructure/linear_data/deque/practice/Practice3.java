@@ -46,6 +46,29 @@ class MyDeque{
         this.arr[this.rear] = data;
     }
 
+    public void addMiddle(int data){
+        if(this.isFull()){
+            System.out.println("Deque is full");
+            return;
+        }
+//        데크 원소 몇 개 들어가있는지 세보기
+        int elements = this.rear - this.front;
+//        음수인 경우, 배열에 원소 갯수를 더해서 양수로 변환
+        if(elements < 0){
+            elements = this.arr.length + elements;
+        }
+//        중간 지점 찾기
+        int mid = (this.rear - elements / 2 + this.arr.length) % this.arr.length + 1;
+
+        int start = (this.rear + 1) % this.arr.length;
+        int end = (this.rear - elements / 2 + this.arr.length) % this.arr.length;
+        for(int i = start; i != end; i=(i - 1 + this.arr.length) % this.arr.length){
+            this.arr[i] = this.arr[(i - 1 + this.arr.length) % this.arr.length];
+        }
+        this.arr[mid] = data;
+        this.rear = (this.rear+1) % this.arr.length;
+    }
+
     public Integer removeFirst(){
         if(this.isEmpty()){
             System.out.println("Deque is empty");
@@ -64,6 +87,47 @@ class MyDeque{
         this.rear = (this.rear-1 + this.arr.length) % this.arr.length;
         return data;
     }
+
+    public void printDeque(){
+        int start = (this.front + 1) % this.arr.length;
+        int end = (this.rear + 1) % this.arr.length;
+
+        for (int i = start; i != end; i = (i+1)%this.arr.length) {
+            System.out.print(this.arr[i] + " ");
+        }
+        System.out.println();
+    }
 }
 public class Practice3 {
+    public static void main(String[] args) {
+//        Test code
+        MyDeque myDeque = new MyDeque(5);
+        myDeque.addLast(1);
+        myDeque.addLast(2);
+        myDeque.addLast(3);
+        myDeque.addLast(4);
+        myDeque.printDeque();
+
+        myDeque.addMiddle(10);
+        myDeque.printDeque();
+
+        MyDeque myDeque2 = new MyDeque(5);
+        myDeque2.addLast(10);
+        myDeque2.addLast(10);
+        myDeque2.addLast(10);
+        myDeque2.addLast(10);
+        myDeque2.addLast(10);
+        myDeque2.removeFirst();
+        myDeque2.removeFirst();
+        myDeque2.removeFirst();
+        myDeque2.removeFirst();
+        myDeque2.addLast(11);
+        myDeque2.addLast(12);
+        myDeque2.addLast(13);
+        myDeque2.printDeque();
+
+        myDeque2.addMiddle(100);
+        myDeque2.printDeque();
+
+    }
 }

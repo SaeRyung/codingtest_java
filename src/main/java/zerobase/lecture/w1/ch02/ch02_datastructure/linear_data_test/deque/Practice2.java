@@ -1,12 +1,4 @@
-package zerobase.lecture.w1.ch02.ch02_datastructure.linear_data.deque;
-// 배열을 이용한 기본 데크 직접 구현 > 원형으로 만들기 때문에 size +1
-/* front와 rear의 역할
-rear: 데이터를 추가할 때 움직임 (addLast)
-front: 데이터를 제거할 때 움직임 (removeFirst)
-
-시계방향: 0→1→2→3→0 (rear 이동 방향)
-반시계방향: 0→3→2→1→0 (front 이동 방향)
-* */
+package zerobase.lecture.w1.ch02.ch02_datastructure.linear_data_test.deque;
 
 class MyDeque2{
     int[] arr;
@@ -18,11 +10,11 @@ class MyDeque2{
     }
 
     public boolean isEmpty(){
-        return this.rear == this.front;
+        return this.front == this.rear;
     }
 
     public boolean isFull(){
-        return (this.rear+1) % this.arr.length == this.front;
+        return this.front == (this.rear+1) % this.arr.length;
     }
 
     public void addFirst(int data){
@@ -31,7 +23,8 @@ class MyDeque2{
             return;
         }
         this.arr[this.front] = data;
-        this.front = (this.front - 1 + this.arr.length) % this.arr.length;
+        this.front = (this.front-1+this.arr.length) % this.arr.length;
+
     }
 
     public void addLast(int data){
@@ -39,14 +32,13 @@ class MyDeque2{
             System.out.println("Deque is full");
             return;
         }
-        this.rear = (this.rear + 1)% this.arr.length;
         this.arr[this.rear] = data;
+        this.rear = (this.rear+1) % this.arr.length;
     }
 
     public Integer removeFirst(){
         if(this.isEmpty()){
             System.out.println("Deque is empty");
-            return null;
         }
         this.front = (this.front+1) % this.arr.length;
         return this.arr[this.front];
@@ -55,7 +47,6 @@ class MyDeque2{
     public Integer removeLast(){
         if(this.isEmpty()){
             System.out.println("Deque is empty");
-            return null;
         }
         int data = this.arr[this.rear];
         this.rear = (this.rear-1 + this.arr.length) % this.arr.length;
@@ -63,13 +54,7 @@ class MyDeque2{
     }
 
     public void printDeque(){
-        int start = (this.front+1) % this.arr.length;
-        int end = (this.rear+1) % this.arr.length;
 
-        for(int i=start; i != end; i = (i+1)%this.arr.length){
-            System.out.print(this.arr[i] + " ");
-        }
-        System.out.println();
     }
 
 }

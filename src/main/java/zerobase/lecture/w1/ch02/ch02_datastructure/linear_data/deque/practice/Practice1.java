@@ -29,13 +29,13 @@ public class Practice1 {
         }
 
         System.out.println("정렬 전");
-        printData(arr);
+        printDeque(arr);
         System.out.println("정렬 후");
-        printData(result.stream().mapToInt(x -> (int)x).toArray());
+        printDeque(result.stream().mapToInt(x -> (int)x).toArray());
 //        형태 int, array로 변환
     }
 
-    public static void printData(int[] arr){
+    public static void printDeque(int[] arr){
         for(int i=0; i<arr.length-1; i++){
             System.out.print(arr[i] + " -> ");
         }
