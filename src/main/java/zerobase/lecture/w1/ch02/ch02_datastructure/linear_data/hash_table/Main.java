@@ -6,6 +6,7 @@ import java.util.Map;
 // 선형 자료구조 - 해시 테이블
 public class Main {
     //    해시 함수
+//    hash table size = 5
     public static int getHash(int key){
         return key % 5;
     }
@@ -31,13 +32,13 @@ public class Main {
         ht2.put(getHash(4), 40);
         ht2.put(getHash(5), 50);
 
-        System.out.println("충돌 전");
+        System.out.println("===충돌 전===");
         for(Map.Entry<Integer, Integer> item :ht2.entrySet()){
             System.out.println(item.getKey() + " - " + item.getValue());
         }
 
         ht2.put(getHash(6), 60);
-        System.out.println("충돌 후");
+        System.out.println("===충돌 후===");
         for(Map.Entry<Integer, Integer> item :ht2.entrySet()){
             System.out.println(item.getKey() + " - " + item.getValue());
         }

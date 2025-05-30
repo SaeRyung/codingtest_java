@@ -12,6 +12,7 @@ class MyHashTable2 extends MyHashTable{
         if(this.elemCnt == this.table.length){
             System.out.println("Hash table is full");
             return;
+//            인덱스에 데이터 할당 되지 않은 경우 해당 위치에 데이터 넣기
         } else if (this.table[idx] == null) {
             this.table[idx] = data;
             elemCnt++;
@@ -22,12 +23,14 @@ class MyHashTable2 extends MyHashTable{
                 // 빈공간 하나씩 구하기
                 newIdx = (newIdx + 1) % this.table.length;
                 if (this.table[newIdx] == null){
-                    this.table[newIdx] = data;
-                    elemCnt++;
                     break;
                 }
             }
+//            반복문 종료 후 해당 위치에 데이터 넣기
+            this.table[newIdx] = data;
         }
+//        카운트 증가
+        elemCnt++;
     }
 }
 

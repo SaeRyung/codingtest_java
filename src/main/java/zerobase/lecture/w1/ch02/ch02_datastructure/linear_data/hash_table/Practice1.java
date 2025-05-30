@@ -17,8 +17,8 @@ class MyHashTable{
     }
 
     public void setValue(int key, int data){
-        int idx = this.getHash(key);
-        this.table[idx] = data;
+        int idx = this.getHash(key); // 해시값
+        this.table[idx] = data; // 일치하는 인덱스에 해시값 넣기
         this.elemCnt++;
     }
 
