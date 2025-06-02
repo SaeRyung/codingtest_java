@@ -1,4 +1,4 @@
-package zerobase.lecture.w1.ch03.ch03_non_linear_data.avl_tree;
+package zerobase.lecture.w1.ch03.non_linear_data.avl_tree;
 // AVL트리 - 삭제
 class AVLTree2 extends AVLTree{
     public void delete(int key){

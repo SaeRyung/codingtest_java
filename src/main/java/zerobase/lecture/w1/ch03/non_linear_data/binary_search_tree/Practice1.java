@@ -1,4 +1,4 @@
-package zerobase.lecture.w1.ch03.ch03_non_linear_data.binary_search_tree;
+package zerobase.lecture.w1.ch03.non_linear_data.binary_search_tree;
 // BST 삽입, 삭제 코드를 재귀 형태로 표현
 
 import java.util.LinkedList;

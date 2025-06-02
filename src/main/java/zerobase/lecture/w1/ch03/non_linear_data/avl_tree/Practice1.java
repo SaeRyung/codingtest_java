@@ -1,4 +1,4 @@
-package zerobase.lecture.w1.ch03.ch03_non_linear_data.avl_tree;
+package zerobase.lecture.w1.ch03.non_linear_data.avl_tree;
 // 비선형 자료구조 - 이진탐색트리 2
 // AVL 트리 - 삽입
 

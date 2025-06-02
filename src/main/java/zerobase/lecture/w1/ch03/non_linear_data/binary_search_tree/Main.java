@@ -1,4 +1,4 @@
-package zerobase.lecture.w1.ch03.ch03_non_linear_data.binary_search_tree;
+package zerobase.lecture.w1.ch03.non_linear_data.binary_search_tree;
 
 import java.util.LinkedList;
 import java.util.Queue;

@@ -1,4 +1,4 @@
-package zerobase.lecture.w1.ch03.ch03_non_linear_data.binary_search_tree.practice;
+package zerobase.lecture.w1.ch03.non_linear_data.binary_search_tree.practice;
 /* 주어진 이진 탐색 트리에서 N번째로 작은 수 구하기
 입력 트리: 3, 1, 4, null, 2
 N: 1
