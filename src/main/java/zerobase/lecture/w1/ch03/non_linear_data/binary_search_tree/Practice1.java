@@ -36,11 +36,13 @@ class BinarySearchTree2{
             cur.right = removeNodeRecursive(cur.right, key);
         } else {
 //            찾은 후
+//            자식 노드 하나이거나 없는 경우
             if(cur.left == null){
                 return cur.right;
             } else if (cur.right == null) {
                 return cur.left;
             } else {
+//                자식노드가 2개인 경우
                 Node predecessor = cur;
                 Node successor = cur.left;
 
@@ -87,14 +89,14 @@ public class Practice1 {
         bst.head = bst.addNodeRecursive(bst.head, 35);
         bst.head = bst.addNodeRecursive(bst.head, 27);
         bst.head = bst.addNodeRecursive(bst.head, 40);
-        bst.levelOrder(bst.head);
+        bst.levelOrder(bst.head); // 20 10 30 1 15 25 35 13 27 40
 
 //        노드 삭제
         bst.head = bst.removeNodeRecursive(bst.head, 40);
-        bst.levelOrder(bst.head);
+        bst.levelOrder(bst.head); // 20 10 30 1 15 25 35 13 27
         bst.head = bst.removeNodeRecursive(bst.head, 25);
-        bst.levelOrder(bst.head);
+        bst.levelOrder(bst.head); // 20 10 30 1 15 27 35 13
         bst.head = bst.removeNodeRecursive(bst.head, 20);
-        bst.levelOrder(bst.head);
+        bst.levelOrder(bst.head); // 15 10 30 1 13 27 35
     }
 }

@@ -13,6 +13,7 @@ class AVLTree2 extends AVLTree{
         } else if (key > node.key) {
             node.right = delete(node.right, key);
         } else {
+//            삭제 부분
             if(node.left == null){
                 return node.right;
             } else if (node.right == null) {
@@ -63,20 +64,20 @@ public class Practice2 {
         avl.insert(20);
         avl.insert(40);
         avl.insert(10);
-        avl.levelOrder(avl.head);
+        avl.levelOrder(avl.head); // 30 20 40 10
         avl.delete(40); // LL
-        avl.levelOrder(avl.head);
+        avl.levelOrder(avl.head); // 20 10 30
 
         avl.insert(40);
         avl.delete(10); // RR
-        avl.levelOrder(avl.head);
+        avl.levelOrder(avl.head); // 30 20 40
 
         avl.insert(25);
         avl.delete(40); // LR
-        avl.levelOrder(avl.head);
+        avl.levelOrder(avl.head); // 25 20 30
 
         avl.insert(27);
         avl.delete(20); // RL
-        avl.levelOrder(avl.head);
+        avl.levelOrder(avl.head); // 27 25 30
     }
 }

@@ -2,6 +2,43 @@ package zerobase.lecture.w1.ch03.non_linear_data.binary_search_tree;
 
 import java.util.LinkedList;
 import java.util.Queue;
+/* 이진 탐색 트리
+- 아래의 규칙으로 구성된 이진 트리
+1. 왼쪽 자식 노드의 키는 부모 노드의 키보다 작음
+2. 오른쪽 자식 노드의 키는 부모 노드의 키보다 큼
+3. 각각 서브 트리도 이진 탐색 트리를 유지
+4. 중복된 키를 허용하지 않음
+
+- 이진 탐색 트리 규칙에 의해 데이터가 정렬됨
+- 이진 트리에 비해 탐색 빠름(균형 유지 필요)
+ㄴ 균형 상태 : O(logN) , 불균형 상태 : O(N)
+
+# 탐색
+- 찾고자 하는 데이터를 루트 노드부터 비교 시작
+- 대소 비교를 하여 찾는 데이터가 작으면 왼쪽, 크면 오른쪽 노드로 이동
+- 찾는 데이터가 없으면 null 반환
+- 어떤 데이터를 찾더라도 최대 트리 높이 만큼의 탐색이 이루어짐
+
+# 삽입
+- Root 부터 비교 시작(중복 키 발견 시 노드 추가하지 않고 종료)
+- 삽입할 키가 현재 노드의 키보다 작으면 왼쪽, 크면 오른쪽으로 이동
+- Leaf 노드에 도달 후 비교하여 작으면 왼쪽, 크면 오른쪽에 삽입
+
+# 삭제
+- 삭제 대상 노드가 Leaf 노드인 경우
+1. 삭제 대상 노드 삭제
+2. 부모 노드의 해당 자식 링크 null 로 변경
+
+- 삭제 대상 노드에 자식 노드가 하나 있는 경우
+1. 자식 노드를 삭제 대상 노드의 부모 노드에 연결
+2. 삭제 대상 노드 삭제
+
+- 삭제 대상 노드에 자식 노드가 둘인 경우
+1. 삭제 대상 노드의 왼쪽 서브 트리에 가장 큰 노드 선택 or 삭제 대상 노드의 오른쪽 서브 트리에서 가장 작은 노드 선택
+2. 1번에서 선택한 노드를 삭제 대상 노드 위치로 올림
+3. 위로 올리는 과정에서 다른 자식 노드들의 링크 연결 작업 진행
+4. 삭제 대상 노드 삭제
+* */
 
 // 비선형 자료 구조 - 이진 탐색 트리
 class Node {
@@ -174,15 +211,15 @@ public class Main {
         bst.addNode(35);
         bst.addNode(27);
         bst.addNode(40);
-        bst.levelOrder(bst.head);
+        bst.levelOrder(bst.head); // 20 10 30 1 15 25 35 13 27 40
 
 //        노드 삭제
         bst.removeNode(40); // Left 노드인 경우
-        bst.levelOrder(bst.head);
+        bst.levelOrder(bst.head); // 20 10 30 1 15 25 35 13 27
         bst.removeNode(25); // 자식 노드가 하나인 경우
-        bst.levelOrder(bst.head);
+        bst.levelOrder(bst.head); // 20 10 30 1 15 27 35 13
         bst.removeNode(20);
-        bst.levelOrder(bst.head);
+        bst.levelOrder(bst.head); // 15 10 30 1 13 27 35
     }
 
 
