@@ -104,7 +104,7 @@ class BinarySearchTree{
             if(key == cur.key){
                 break;
             }
-//            parent 가 current 를 쫗아다니면서
+//            parent 가 current 를 쫓아다니면서
             parent = cur;
 //            현재 key 가 해당 key보다 크다면 왼쪽, 아니면 오른쪽 이동
             if(key < cur.key){
