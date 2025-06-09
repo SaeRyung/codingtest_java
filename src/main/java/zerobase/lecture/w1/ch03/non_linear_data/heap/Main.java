@@ -20,13 +20,13 @@ package zerobase.lecture.w1.ch03.non_linear_data.heap;
 * */
 
 import java.util.ArrayList;
-
+// 최소 힙
 class MinHeap{
     ArrayList<Integer> heap;
 
     public MinHeap(){
         this.heap = new ArrayList<>();
-        this.heap.add(0); // 1번부터 시작할 수 있도록 데이터 1개 삽입
+        this.heap.add(0); // 1번부터 시작할 수 있도록 데이터 1개 삽입 - 코드 가독성, 계산 효율 높이기
     }
 
 //    데이터 삽입
@@ -65,9 +65,10 @@ class MinHeap{
             int rightIdx = cur * 2 + 1;
             int targetIdx = -1;
 
-            if(rightIdx < heap.size()){
+            if(rightIdx < heap.size()){ // 오른쪽 자식 존재 여부 확인, 존재한다면 왼쪽 자식 반드시 존재(완전 이진 트리)
+                // 두 자식 중 더 작은 자식 선택
                 targetIdx = heap.get(leftIdx) < heap.get(rightIdx) ? leftIdx : rightIdx;
-            } else if(leftIdx < heap.size()){ // 자식 노드가 하나인 경우
+            } else if(leftIdx < heap.size()){ // 자식 노드가 하나인 경우, 왼쪽 자식만 존재하는 경우
                 targetIdx = cur * 2; //
             } else { // 부모 노드만 있는 경우
                 break;

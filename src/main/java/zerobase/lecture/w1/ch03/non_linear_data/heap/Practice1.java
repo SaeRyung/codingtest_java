@@ -20,7 +20,7 @@ package zerobase.lecture.w1.ch03.non_linear_data.heap;
 * */
 
 import java.util.ArrayList;
-
+// 최대 힙
 class MaxHeap{
     ArrayList<Integer> heap;
 
