@@ -31,11 +31,48 @@ public class Main {
 
 //    삽입 정렬
     private static void insertionSort(int[] arr) {
+//        앞에서 비교
+        for(int i=1; i<arr.length; i++) {
+            for(int j=i; j>0; j--) {
+                if (arr[j] < arr[j-1]) {
+                    int temp = arr[j];
+                    arr[j] = arr[j-1];
+                    arr[j-1] = temp;
+                } else { // 앞의 데이터는 이미 정렬이 되어 있으므로 break 추가
+                    break;
+                }
+            }
+        }
 
     }
 
 //    선택 정렬
     private static void selectionSort(int[] arr) {
+        // 최소
+//        for(int i=0; i<arr.length-1; i++) {
+//            int min = i;
+//            for (int j=i+1; j<arr.length; j++) {
+//                if (arr[j] < arr[min]) {
+//                    min = j;
+//                }
+//            }
+//                int temp = arr[i];
+//                arr[i] = arr[min];
+//                arr[min] = temp;
+//        }
+
+        // 최대
+        for(int i=arr.length-1; i>0; i--) {
+            int max = i;
+            for (int j=i-1; j>=0; j--) {
+                if (arr[j] > arr[max]) {
+                    max = j;
+                }
+            }
+            int temp = arr[i];
+            arr[i] = arr[max];
+            arr[max] = temp;
+        }
     }
 
     public static void main(String[] args) {
