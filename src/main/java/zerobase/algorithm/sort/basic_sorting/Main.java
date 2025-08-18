@@ -49,19 +49,21 @@ public class Main {
 //    선택 정렬
     private static void selectionSort(int[] arr) {
         // 최소
-//        for(int i=0; i<arr.length-1; i++) {
-//            int min = i;
-//            for (int j=i+1; j<arr.length; j++) {
-//                if (arr[j] < arr[min]) {
-//                    min = j;
-//                }
-//            }
-//                int temp = arr[i];
-//                arr[i] = arr[min];
-//                arr[min] = temp;
-//        }
+        // 최소값을 찾아 가장 앞쪽으로 교환하는 방식
+        for(int i=0; i<arr.length-1; i++) {
+            int min = i;
+            for (int j=i+1; j<arr.length; j++) {
+                if (arr[j] < arr[min]) {
+                    min = j;
+                }
+            }
+                int temp = arr[i];
+                arr[i] = arr[min];
+                arr[min] = temp;
+        }
 
         // 최대
+//        최대값을 찾아 가장 뒤쪽으로 교환하는 방식
         for(int i=arr.length-1; i>0; i--) {
             int max = i;
             for (int j=i-1; j>=0; j--) {
@@ -79,15 +81,15 @@ public class Main {
 //        Test code
         int[] arr = {3, 5, 2, 7, 1, 4};
         bubbleSort(arr);
-        System.out.println("버블 정렬: " + Arrays.toString(arr));
+        System.out.println("버블 정렬: " + Arrays.toString(arr)); // [1, 2, 3, 4, 5, 6, 7]
         
         arr= new int[]{3, 5, 2, 7, 1, 4};
         insertionSort(arr);
-        System.out.println("삽입 정렬: " + Arrays.toString(arr));
+        System.out.println("삽입 정렬: " + Arrays.toString(arr)); // [1, 2, 3, 4, 5, 6, 7]
         
         
         arr= new int[]{3, 5, 2, 7, 1, 4};
         selectionSort(arr);
-        System.out.println("선택 정렬: " + Arrays.toString(arr));
+        System.out.println("선택 정렬: " + Arrays.toString(arr)); // [1, 2, 3, 4, 5, 6, 7]
     }
 }
