@@ -54,7 +54,7 @@ public class Practice2 {
     public static void main(String[] args) {
 //        Test code
         int[] arr = {4, 5, 6, 7, 8, 0, 1, 2};
-        System.out.println(solution(arr, 0)); // -5
+        System.out.println(solution(arr, 0)); // 5
         System.out.println(solution(arr, 3)); // -1
     }
 }

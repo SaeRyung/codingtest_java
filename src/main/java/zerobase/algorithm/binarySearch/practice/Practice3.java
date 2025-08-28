@@ -26,13 +26,17 @@ public class Practice3 {
         int right = rows * cols - 1; // 행렬의 끝 인덱스
 
         while(left <= right) {
-            int mid = (left + right) / 2;
+//            int mid = (left + right) / 2;
+            int mid = left + (right - left) / 2;
 
             if(arr[mid/cols][mid%cols]==target) {
+//                중간값이 타겟과 일치하는 경우
                 return true;
             } else if(arr[mid/cols][mid%cols]<target) {
+//                중간값이 찾는 값보다 작은 경우, 오름차순 정렬된 배열에서 target 이 중간값의 오른쪽에 위치 동작 - 탐색 범위를 오른쪽 절반으로 축소
                 left = mid + 1;
             } else {
+//                중간값이 찾는 값보다 큰 경우, 오름차순 정렬된 배열에서 target 이 중간값 왼쪽에 위치 동작 - 탐색 범위를 왼쪽 절반으로 축소
                 right = mid - 1;
             }
         }

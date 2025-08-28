@@ -9,10 +9,13 @@ public class Main {
             int mid = left + (right - left) / 2;
 
             if(target == arr[mid]) {
+                // 찾았으므로 인덱스 반환
                 return mid;
             } else if(target < arr[mid]) {
+                // 왼쪽 절반에서 계속 탐색
                 right = mid - 1;
             } else {
+                // 오른쪽 절반에서 계속 탐색
                 left = mid + 1;
             }
         }
